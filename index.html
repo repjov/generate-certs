@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en-RU">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <title>Генератор Сертификата</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
+    <script type="text/javascript" src="./index.js"></script>
+</head>
+<body onload="render()">
+    <div class="container" style="padding-bottom: 30px;">
+        <div class="col-md-12">
+            <h1 class="text-center">Генератор Сертификатов</h1>
+        </div>
+    </div>
+    <div class="container">
+        <div class="col-md-5">
+            <div class="form-group">
+                <label>Имя стажера</label>
+                <input class="form-control" onkeyup="updateObject('name', this.value)" id="name" type="text">
+            </div>
+            <div class="form-group">
+                <label>Дата начала стажировки</label>
+                <input class="form-control" onkeyup="updateObject('dateStart', this.value)" id="date-start" type="text">
+            </div>
+            <div class="form-group">
+                <label>Дата окончания стажировки</label>
+                <input class="form-control" onkeyup="updateObject('dateEnd', this.value)" id="date-end" type="text">
+            </div>
+            <div class="form-group">
+                <label>Дата выдачи сертификата</label>
+                <input class="form-control" onkeyup="updateObject('awardDate', this.value)" id="award-date" type="text">
+            </div>
+            <div class="form-group">
+                <a 
+                    id="download"
+                    class="btn btn-success"
+                    href="#" 
+                    onclick="download_img(this);"
+                ><i class="fas fa-arrow-alt-circle-down"></i> ЗАГРУЗИТЬ СЕРТИФИКАТ</a>
+            </div>
+        </div>
+        <div class="col-md-7" style="opacity: 0.5">
+            <canvas id="preview"></canvas>
+            <canvas style="display:none" id="download-cert"></canvas>
+        </div>
+    </div>
+</body>
+</html>
